@@ -1,11 +1,16 @@
 import React from "react";
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View, Text, Button } from "react-native";
 import Constants from "expo-constants";
 
-export default function Home() {
+export default function Home({ navigation }) {
   return (
     <View style={styles.container}>
       <Text>Hello</Text>
+
+      {/* <Button
+        title="Detalhes"
+        onPress={() => navigation.navigate('Detalhes')}
+      /> */}
     </View>
   );
 }
