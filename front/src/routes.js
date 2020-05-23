@@ -5,15 +5,13 @@ import { createStackNavigator } from "@react-navigation/stack";
 const AppStack = createStackNavigator();
 
 import Home from "./screens/Home";
-import Login from "./screens/Login";
 import Detalhes from "./screens/Detalhes";
 
 export default function Routes() {
   return (
     <NavigationContainer>
-      <AppStack.Navigator >
-        <AppStack.Screen name="Home" component={Home} />
-        <AppStack.Screen name="Login" component={Login} />
+      <AppStack.Navigator>
+        <AppStack.Screen name="Início" component={Home} />
 
         <AppStack.Screen name="Detalhes" component={Detalhes} />
       </AppStack.Navigator>
