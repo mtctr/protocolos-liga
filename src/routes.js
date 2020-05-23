@@ -4,13 +4,15 @@ import { createStackNavigator } from "@react-navigation/stack";
 
 const AppStack = createStackNavigator();
 
-import Home from "./components/Home";
+import Home from "./screens/Home";
+import Login from "./screens/Login";
 
 export default function Routes() {
   return (
     <NavigationContainer>
       <AppStack.Navigator screenOptions={{ headerShown: false }}>
-        AppStack.Screen name="Home" component={Home} />
+        <AppStack.Screen name="Home" component={Home} />
+        <AppStack.Screen name="Login" component={Login} />
       </AppStack.Navigator>
     </NavigationContainer>
   );
