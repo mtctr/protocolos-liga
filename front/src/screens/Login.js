@@ -1,8 +1,10 @@
 import React from "react";
 import { useState } from 'react';
-import { StyleSheet, View, Text, TextInput, TouchableOpacity, Image } from "react-native";
+import { StyleSheet, View, Text, TextInput, TouchableOpacity, Image, Alert } from "react-native";
 import Constants from "expo-constants";
 import { useNavigation } from '@react-navigation/native';
+
+import Api from '../services/Api';
 
 export default function Login() {
   const navigation = useNavigation();
@@ -40,9 +42,23 @@ export default function Login() {
     </View>
   );
 
-  function signIn({ username, password })
+  async function signIn({ username, password })
   {
-    navigation.navigate('Início');
+    await Api.post('/account/login', { username, password })
+      .then(
+        (response) => { 
+          const user = response.data;
+
+          if (user.success)
+          {
+            navigation.navigate('Início');
+          }
+        },
+        (error) => { 
+          alert("Usuário e/ou Senha inválido!");
+        },
+      );
+
   }
 }
 
